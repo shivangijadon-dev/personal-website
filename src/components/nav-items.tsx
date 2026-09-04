@@ -1,10 +1,18 @@
-import { Home, Briefcase, PenLine, Mail, FileText } from "lucide-react";
+import {
+  Home,
+  Briefcase,
+  LayoutTemplate,
+  PenLine,
+  Mail,
+  FileText,
+} from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 
 export const pages = [
   { href: "/", label: "Home", icon: Home, shortcut: "1" },
   { href: "/work", label: "Work", icon: Briefcase, shortcut: "2" },
-  { href: "/blog", label: "Writing", icon: PenLine, shortcut: "3" },
+  { href: "/templates", label: "Templates", icon: LayoutTemplate, shortcut: "3" },
+  { href: "/blog", label: "Writing", icon: PenLine, shortcut: "4" },
 ];
 
 export const socials = [
