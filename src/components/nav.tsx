@@ -13,14 +13,11 @@ export function Nav() {
         </Link>
         <div className="flex items-center gap-5">
           <div className="flex gap-5 text-sm text-muted">
-            <Link href="/#projects" className="transition-colors hover:text-accent">
-              Projects
+            <Link href="/work" className="transition-colors hover:text-accent">
+              Work
             </Link>
             <Link href="/blog" className="transition-colors hover:text-accent">
               Blog
-            </Link>
-            <Link href="/#about" className="transition-colors hover:text-accent">
-              About
             </Link>
           </div>
           <ThemeToggle />
