@@ -1,4 +1,4 @@
-import { Home, Briefcase, PenLine, Mail } from "lucide-react";
+import { Home, Briefcase, PenLine, Mail, FileText } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 
 export const pages = [
@@ -9,21 +9,27 @@ export const pages = [
 
 export const socials = [
   {
-    href: "mailto:shivangi.p.jadon@gmail.com",
+    href: "mailto:shivangijadon@zohomail.in",
     label: "Email",
     icon: Mail,
     external: false,
   },
   {
-    href: "https://github.com/",
+    href: "https://github.com/shivangijadon-dev",
     label: "GitHub",
     icon: GithubIcon,
     external: true,
   },
   {
-    href: "https://linkedin.com/",
+    href: "https://www.linkedin.com/in/shivangi-j-9a23b8321/",
     label: "LinkedIn",
     icon: LinkedinIcon,
+    external: true,
+  },
+  {
+    href: "/shivangi-jadon-resume.pdf",
+    label: "Résumé",
+    icon: FileText,
     external: true,
   },
 ];

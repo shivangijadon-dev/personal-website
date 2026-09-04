@@ -19,7 +19,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Shivangi Jadon",
-  description: "Personal site — projects and writing.",
+  description:
+    "Lead Technical Consulting Engineer at Cisco, working on automation, AI/ML tooling, and cloud systems. Projects and writing.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
