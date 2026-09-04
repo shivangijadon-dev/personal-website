@@ -42,6 +42,22 @@ Three families, loaded via `next/font/google` in
 - **Geist Mono** (`--font-mono`) — small meta labels only (dates, section headers), always
   uppercase with `tracking-[0.2em]`.
 
+## Layout
+
+Modelled on [sj.land](https://www.sj.land/): a fixed left sidebar beside a rounded content
+panel that floats on the pastel background.
+
+- [`components/sidebar.tsx`](../src/components/sidebar.tsx) — the desktop sidebar, at `lg:`
+  and up. Signature-style italic wordmark, icon nav with a raised pill for the active page,
+  a small-caps "Stay in touch" group, and the theme switcher pinned to the bottom. Number
+  keys 1–3 jump between pages, ignoring modifiers and typing in form fields.
+- [`components/nav.tsx`](../src/components/nav.tsx) — the top bar that replaces the sidebar
+  below `lg:`.
+- Nav destinations live in one place,
+  [`components/nav-items.tsx`](../src/components/nav-items.tsx), so both share them.
+- The content panel is defined in [`app/layout.tsx`](../src/app/layout.tsx) — a glass card
+  that always fills at least the viewport height, so the footer sits at its bottom edge.
+
 ## Recurring patterns
 
 - **Ambient orbs** — [`components/background.tsx`](../src/components/background.tsx) renders

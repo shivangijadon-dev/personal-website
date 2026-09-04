@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Fraunces, Nunito, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Background } from "@/components/background";
-import { Nav } from "@/components/nav";
+import { Sidebar } from "@/components/sidebar";
+import { MobileNav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import "./globals.css";
 
@@ -34,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${fraunces.variable} ${nunito.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-background text-foreground">
+      <body className="min-h-full bg-background text-foreground">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -42,9 +43,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           disableTransitionOnChange
         >
           <Background />
-          <Nav />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <Sidebar />
+          <MobileNav />
+
+          <div className="lg:pl-60">
+            <div className="p-3 sm:p-5">
+              <main className="flex min-h-[calc(100vh-2.5rem)] flex-col overflow-hidden rounded-3xl border border-border bg-card backdrop-blur-md">
+                <div className="flex-1">{children}</div>
+                <Footer />
+              </main>
+            </div>
+          </div>
         </ThemeProvider>
       </body>
     </html>

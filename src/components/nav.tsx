@@ -1,28 +1,45 @@
-import Link from "next/link";
-import { ThemeToggle } from "@/components/theme-toggle";
+"use client";
 
-export function Nav() {
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { pages } from "@/components/nav-items";
+import { ThemeSwitcher } from "@/components/theme-switcher";
+
+/** Top bar shown below the sidebar breakpoint. */
+export function MobileNav() {
+  const pathname = usePathname();
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/60 backdrop-blur-xl">
-      <nav className="mx-auto flex w-full max-w-4xl items-center justify-between px-6 py-5">
+    <header className="sticky top-0 z-40 border-b border-border bg-background/70 backdrop-blur-xl lg:hidden">
+      <div className="flex items-center justify-between gap-4 px-5 py-4">
         <Link
           href="/"
-          className="font-display text-lg font-semibold tracking-tight transition-colors hover:text-accent"
+          className="font-display text-lg font-semibold italic tracking-tight"
         >
           Shivangi Jadon
         </Link>
-        <div className="flex items-center gap-5">
-          <div className="flex gap-5 text-sm text-muted">
-            <Link href="/work" className="transition-colors hover:text-accent">
-              Work
-            </Link>
-            <Link href="/blog" className="transition-colors hover:text-accent">
-              Blog
-            </Link>
-          </div>
-          <ThemeToggle />
-        </div>
-      </nav>
+        <nav className="flex items-center gap-4 text-sm">
+          {pages.map(({ href, label }) => {
+            const active =
+              href === "/" ? pathname === "/" : pathname.startsWith(href);
+            return (
+              <Link
+                key={href}
+                href={href}
+                aria-current={active ? "page" : undefined}
+                className={`transition-colors ${
+                  active ? "text-accent" : "text-muted hover:text-foreground"
+                }`}
+              >
+                {label}
+              </Link>
+            );
+          })}
+        </nav>
+      </div>
+      <div className="px-5 pb-4">
+        <ThemeSwitcher />
+      </div>
     </header>
   );
 }
