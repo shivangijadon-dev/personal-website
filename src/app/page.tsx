@@ -1,26 +1,19 @@
 import Link from "next/link";
-import { Sparkles, ArrowUpRight, Download } from "lucide-react";
+import { ArrowUpRight, Download } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
+import { Greeting } from "@/components/greeting";
 
 export default function Home() {
   return (
     <div className="mx-auto flex w-full max-w-4xl flex-col gap-6 px-8 py-24 sm:py-32">
       <FadeIn>
-        <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-accent">
-          <Sparkles size={14} strokeWidth={2} />
-          Hi, I&apos;m
-        </p>
+        <Greeting />
       </FadeIn>
 
       <FadeIn delay={0.05}>
-        <h1 className="font-display text-5xl font-semibold tracking-tight sm:text-6xl">
-          Shivangi Jadon
-        </h1>
-      </FadeIn>
-
-      <FadeIn delay={0.1}>
-        <p className="font-mono text-xs uppercase tracking-[0.15em] text-muted">
-          Lead Technical Consulting Engineer · Cisco · Bengaluru
+        <p className="max-w-xl text-lg leading-8">
+          I&apos;m <strong className="font-semibold">Shivangi Jadon</strong>, a
+          Lead Technical Consulting Engineer at Cisco in Bengaluru.
         </p>
       </FadeIn>
 

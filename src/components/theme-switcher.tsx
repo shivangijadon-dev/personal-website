@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { useHydrated } from "@/lib/use-hydrated";
 
 const options = [
   { value: "light", label: "Light" },
@@ -11,14 +11,12 @@ const options = [
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const hydrated = useHydrated();
 
   return (
-    <div className="flex rounded-full border border-border bg-card p-1 backdrop-blur-md">
+    <div className="flex rounded-full border border-border bg-card p-1">
       {options.map((option) => {
-        const active = mounted && theme === option.value;
+        const active = hydrated && theme === option.value;
         return (
           <button
             key={option.value}
