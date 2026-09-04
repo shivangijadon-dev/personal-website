@@ -38,7 +38,7 @@ export default async function BlogPost({
   }
 
   return (
-    <article className="mx-auto flex w-full max-w-2xl flex-col gap-10 px-6 py-20">
+    <article className="mx-auto flex w-full max-w-2xl flex-col gap-8 px-6 py-20">
       <Link
         href="/blog"
         className="group flex w-fit items-center gap-1.5 text-sm text-muted transition-colors hover:text-accent"
@@ -51,14 +51,20 @@ export default async function BlogPost({
         Blog
       </Link>
       <header className="flex flex-col gap-3">
-        <span className="font-mono text-xs uppercase tracking-widest text-muted">
+        <span className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
           {post.date}
         </span>
-        <h1 className="text-3xl font-semibold tracking-tight">
+        <h1 className="font-display text-4xl font-semibold tracking-tight">
           {post.title}
         </h1>
       </header>
-      <div className="prose prose-zinc dark:prose-invert max-w-none prose-headings:tracking-tight prose-a:text-accent prose-a:no-underline hover:prose-a:underline">
+      <div
+        className="prose max-w-none prose-headings:font-display prose-headings:tracking-tight
+          prose-headings:text-foreground prose-p:text-muted prose-p:leading-8
+          prose-li:text-muted prose-strong:text-foreground
+          prose-a:text-accent prose-a:no-underline hover:prose-a:underline
+          prose-code:text-accent prose-blockquote:border-l-accent prose-blockquote:text-muted"
+      >
         <MDXRemote source={post.content} />
       </div>
     </article>
