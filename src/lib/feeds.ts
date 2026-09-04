@@ -34,13 +34,16 @@ export const platforms = [
   {
     name: "Hashnode",
     icon: HashnodeIcon,
-    profile: "https://shivangijadon.hashnode.dev",
-    feed: "https://shivangijadon.hashnode.dev/rss.xml",
+    profile: "https://hashnode.com/@shivangijadon",
+    // Hashnode only serves RSS from a publication, and none exists yet. Once a
+    // blog is created, set this to https://<blog>.hashnode.dev/rss.xml
+    feed: "",
   },
   {
     name: "dev.to",
     icon: DevToIcon,
     profile: "https://dev.to/shivangijadon",
+    // dev.to returns 404 for this until the first article is published.
     feed: "https://dev.to/feed/shivangijadon",
   },
 ];
