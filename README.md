@@ -4,7 +4,7 @@ Next.js + Tailwind personal site with a portfolio home page and an MDX-powered b
 
 ## Structure
 
-- `src/app/page.tsx` — home page: portrait, name, and short bio only
+- `src/app/page.tsx` — home page: name and short bio only
 - `src/app/work/page.tsx` — projects, skill rings, and experience timeline
 - `src/app/blog/` — blog index and post pages
 - `src/content/posts/*.mdx` — blog posts, one file per post
@@ -38,9 +38,6 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Editing content
 
-- **Your photo** — drop the image into `public/` (e.g. `public/me.jpg`), then set
-  `PORTRAIT_SRC` to `"/me.jpg"` at the top of `src/components/portrait.tsx`. Until then a
-  pastel placeholder is shown.
 - **Bio** — the intro copy lives in `src/app/page.tsx`.
 - **Projects, skills, experience** — the `projects`, `skills`, and `experience` arrays at the
   top of `src/app/work/page.tsx`.

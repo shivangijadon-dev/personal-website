@@ -14,7 +14,7 @@ export function MobileNav() {
       <div className="flex items-center justify-between gap-4 px-5 py-4">
         <Link
           href="/"
-          className="font-display text-lg font-semibold italic tracking-tight"
+          className="font-display text-lg font-semibold tracking-tight"
         >
           Shivangi Jadon
         </Link>

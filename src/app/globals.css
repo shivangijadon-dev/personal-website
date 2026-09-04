@@ -3,31 +3,30 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #fdf8f4;
-  --foreground: #443a58;
-  --muted: #6f6480;
-  --border: rgba(139, 123, 216, 0.18);
-  --card: rgba(255, 255, 255, 0.62);
+  --background: #fafafa;
+  --foreground: #2f2a3a;
+  --muted: #6f6880;
+  --border: rgba(47, 42, 58, 0.1);
+  --card: #ffffff;
   --accent: #7d6bd0;
+  /* Kept for project thumbnails and other accents, not for page background. */
   --peach: #f6c3a8;
   --blush: #f4b3c8;
   --sky: #a9cbe8;
   --sage: #b8cfb2;
-  --orb-opacity: 0.45;
 }
 
 .dark {
-  --background: #16121f;
-  --foreground: #ece7f5;
-  --muted: #a79dbb;
-  --border: rgba(255, 255, 255, 0.12);
-  --card: rgba(255, 255, 255, 0.055);
+  --background: #131316;
+  --foreground: #ededf0;
+  --muted: #9d9aa8;
+  --border: rgba(255, 255, 255, 0.1);
+  --card: #1a1a1f;
   --accent: #bcaaf2;
   --peach: #c98f74;
   --blush: #c2809a;
   --sky: #7ba0c4;
   --sage: #86a583;
-  --orb-opacity: 0.22;
 }
 
 @theme inline {
@@ -42,8 +41,8 @@
   --color-sky: var(--sky);
   --color-sage: var(--sage);
 
-  --font-sans: var(--font-nunito);
-  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-harmattan);
+  --font-display: var(--font-harmattan);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -57,7 +56,7 @@ h1,
 h2,
 h3,
 .font-display {
-  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }
 
 ::selection {

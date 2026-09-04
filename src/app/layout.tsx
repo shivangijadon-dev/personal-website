@@ -1,21 +1,15 @@
 import type { Metadata } from "next";
-import { Fraunces, Nunito, Geist_Mono } from "next/font/google";
+import { Harmattan, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Background } from "@/components/background";
 import { Sidebar } from "@/components/sidebar";
 import { MobileNav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const harmattan = Harmattan({
+  variable: "--font-harmattan",
   subsets: ["latin"],
-  axes: ["SOFT", "WONK", "opsz"],
-});
-
-const nunito = Nunito({
-  variable: "--font-nunito",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -33,7 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${fraunces.variable} ${nunito.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${harmattan.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background text-foreground">
         <ThemeProvider
@@ -42,7 +36,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           enableSystem
           disableTransitionOnChange
         >
-          <Background />
           <Sidebar />
           <MobileNav />
 

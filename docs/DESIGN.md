@@ -1,9 +1,9 @@
 # Design direction
 
-The site follows a soft, dreamy pastel aesthetic — warm and a little whimsical, but still
-refined. It is deliberately not the stark black-and-white developer-portfolio look.
-
-Visual references live in [`design-references/`](./design-references/).
+The site is clean and minimal: a white page, a single lavender accent, and generous space.
+It started from a set of pastel references (see [`design-references/`](./design-references/))
+but was deliberately pared back — the ambient gradient wash, the portrait, and the pink tint
+were all removed in favour of white.
 
 ## Palette
 
@@ -12,33 +12,34 @@ them there and the whole site follows.
 
 ### Light (the primary treatment)
 
-| Token          | Value                    | Used for                                  |
-| -------------- | ------------------------ | ----------------------------------------- |
-| `--background` | `#fdf8f4`                | Warm cream base, never pure white         |
-| `--foreground` | `#443a58`                | Deep plum body text, never pure black     |
-| `--muted`      | `#6f6480`                | Secondary text                            |
-| `--accent`     | `#7d6bd0`                | Lavender — links, labels, hover states    |
-| `--card`       | `rgba(255,255,255,0.62)` | Glass card fill, paired with backdrop blur |
-| `--peach`      | `#f6c3a8`                | Ambient orb + cloud divider               |
-| `--blush`      | `#f4b3c8`                | Ambient orb + cloud divider               |
-| `--sky`        | `#a9cbe8`                | Ambient orb                               |
-| `--sage`       | `#b8cfb2`                | Spare accent, currently unused            |
+| Token          | Value                | Used for                                     |
+| -------------- | -------------------- | -------------------------------------------- |
+| `--background` | `#fafafa`            | Off-white page behind the content panel       |
+| `--foreground` | `#2f2a3a`            | Body text — near-black with a hint of plum    |
+| `--muted`      | `#6f6880`            | Secondary text                                |
+| `--accent`     | `#7d6bd0`            | Lavender — links, labels, active nav, hovers  |
+| `--card`       | `#ffffff`            | Content panel and card fill                   |
+| `--peach`      | `#f6c3a8`            | Project thumbnails and skill rings only       |
+| `--blush`      | `#f4b3c8`            | Project thumbnails and skill rings only       |
+| `--sky`        | `#a9cbe8`            | Project thumbnails                            |
+| `--sage`       | `#b8cfb2`            | Spare accent, currently unused                |
+
+The pastels are deliberately scoped to content — thumbnails, tags, and rings. They are never
+used for page or panel backgrounds.
 
 ### Dark
 
-A dusky purple night sky rather than a neutral black, echoing the rocket reference.
-`--background` is `#16121f`, and `--orb-opacity` drops to `0.22` so the gradients read as
-atmosphere instead of haze.
+A neutral near-black (`#131316`) with a slightly lifted panel (`#1a1a1f`), keeping the same
+lavender accent.
 
 ## Typography
 
-Three families, loaded via `next/font/google` in
+Two families, loaded via `next/font/google` in
 [`src/app/layout.tsx`](../src/app/layout.tsx):
 
-- **Fraunces** (`--font-display`) — headings and card titles. A soft, high-contrast serif
-  with `SOFT`, `WONK`, and `opsz` axes enabled. Applied automatically to `h1`/`h2`/`h3`, or
-  explicitly with `.font-display`.
-- **Nunito** (`--font-sans`) — body copy. Rounded terminals keep it warm.
+- **Harmattan** (`--font-sans` and `--font-display`) — everything. An SIL humanist sans,
+  Arabic-first with a Latin companion, in four static weights (400–700). It has no italic, so
+  avoid `italic` — the browser would synthesise a faux oblique.
 - **Geist Mono** (`--font-mono`) — small meta labels only (dates, section headers), always
   uppercase with `tracking-[0.2em]`.
 
@@ -60,18 +61,17 @@ panel that floats on the pastel background.
 
 ## Recurring patterns
 
-- **Ambient orbs** — [`components/background.tsx`](../src/components/background.tsx) renders
-  four large blurred pastel circles, fixed behind all content.
-- **Glass cards** — `rounded-3xl border border-border bg-card backdrop-blur-md`, lifting on
-  hover with `.shadow-soft` (a wide, low-opacity purple-tinted shadow).
-- **Cloud divider** — [`components/cloud-divider.tsx`](../src/components/cloud-divider.tsx)
-  sits above the footer, three layered pastel wave paths at low opacity.
+- **Cards** — `rounded-3xl border border-border bg-card`, lifting on hover with
+  `.shadow-soft` (a wide, low-opacity purple-tinted shadow).
+- **Wave divider** — [`components/cloud-divider.tsx`](../src/components/cloud-divider.tsx)
+  sits above the footer: three layered paths in the accent at 6–10% opacity, enough to
+  suggest an edge without tinting the page.
 - **Motion** — [`components/fade-in.tsx`](../src/components/fade-in.tsx) fades and lifts
   sections into view. It short-circuits to a plain wrapper when the visitor prefers reduced
   motion, so content is never hidden behind an animation.
 
 ## Guardrails
 
-Keep the whimsy atmospheric rather than literal. Orbs, clouds, and sparkles should sit at low
-opacity behind or beside content — the moment they compete with the text for attention, the
-page reads as childish instead of dreamy.
+The page should read as white. Colour belongs to content — a project thumbnail, a tag, a
+skill ring, the active nav pill — never to the page or panel background. When adding
+something decorative, ask whether it tints the whole surface; if it does, it does not belong.
