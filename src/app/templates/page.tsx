@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
-import { templates, type Template } from "@/lib/templates";
+import { ShoppingBag } from "lucide-react";
+import { templates, shop, type Template } from "@/lib/templates";
 
 export const metadata: Metadata = {
   title: "Templates — Shivangi Jadon",
@@ -77,6 +78,30 @@ export default function Templates() {
             first and then cleaned up enough to share.
           </p>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.05}>
+        <a
+          href={shop.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-4 rounded-3xl border border-accent/25 bg-accent/[0.06] p-5 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-soft"
+        >
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-accent/15 text-accent">
+            <ShoppingBag size={18} strokeWidth={1.75} />
+          </span>
+          <span className="flex flex-1 flex-col gap-0.5">
+            <span className="font-display text-lg font-semibold">
+              {shop.name}
+            </span>
+            <span className="text-sm leading-6 text-muted">{shop.blurb}</span>
+          </span>
+          <ArrowUpRight
+            size={18}
+            strokeWidth={2}
+            className="shrink-0 text-accent transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          />
+        </a>
       </FadeIn>
 
       <div className="grid gap-4 sm:grid-cols-2">
