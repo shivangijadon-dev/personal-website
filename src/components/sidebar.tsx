@@ -48,9 +48,14 @@ export function Sidebar() {
     <aside className="fixed inset-y-0 left-0 z-40 hidden w-60 flex-col border-r border-border bg-background/50 px-3 py-6 backdrop-blur-xl lg:flex">
       <Link
         href="/"
-        className="px-3 pb-4 font-display text-xl font-semibold tracking-tight transition-colors hover:text-accent"
+        className="group flex flex-col gap-0.5 px-3 pb-4 transition-colors hover:text-accent"
       >
-        Shivangi Jadon
+        <span className="font-display text-xl font-semibold tracking-tight">
+          Shivangi Jadon
+        </span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+          Designer · Developer
+        </span>
       </Link>
 
       <nav className="flex flex-col">

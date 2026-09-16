@@ -12,11 +12,13 @@ export function MobileNav() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/70 backdrop-blur-xl lg:hidden">
       <div className="flex items-center justify-between gap-4 px-5 py-4">
-        <Link
-          href="/"
-          className="font-display text-lg font-semibold tracking-tight"
-        >
-          Shivangi Jadon
+        <Link href="/" className="flex flex-col gap-0.5">
+          <span className="font-display text-lg font-semibold tracking-tight">
+            Shivangi Jadon
+          </span>
+          <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted">
+            Designer · Developer
+          </span>
         </Link>
         <nav className="flex items-center gap-4 text-sm">
           {pages.map(({ href, label }) => {
