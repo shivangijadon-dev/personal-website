@@ -1,7 +1,7 @@
 /** Where the templates are actually sold. */
 export const shop = {
   name: "Absolair",
-  href: "https://absolair.com",
+  href: "https://absolair.shivangijadon.com",
   blurb: "My shop — where the templates and everything else live.",
 };
 
