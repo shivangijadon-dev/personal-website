@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Download } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
 import { Greeting } from "@/components/greeting";
 
@@ -36,18 +36,6 @@ export default function Home() {
             </Link>
           ))}
         </div>
-      </FadeIn>
-
-      <FadeIn delay={0.1}>
-        <a
-          href="/shivangi-jadon-resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex w-fit items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent"
-        >
-          <Download size={15} strokeWidth={2} />
-          Résumé
-        </a>
       </FadeIn>
     </div>
   );

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Download } from "lucide-react";
 import { FadeIn } from "@/components/fade-in";
 
 export const metadata: Metadata = {
@@ -153,20 +152,9 @@ export default function Work() {
   return (
     <div className="mx-auto flex w-full max-w-4xl flex-col gap-20 px-8 py-20">
       <FadeIn>
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <h1 className="font-display text-4xl font-semibold tracking-tight">
-            Work
-          </h1>
-          <a
-            href="/shivangi-jadon-resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent"
-          >
-            <Download size={15} strokeWidth={2} />
-            Résumé
-          </a>
-        </div>
+        <h1 className="font-display text-4xl font-semibold tracking-tight">
+          Work
+        </h1>
       </FadeIn>
 
       <section id="projects" className="flex flex-col gap-6">

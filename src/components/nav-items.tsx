@@ -4,7 +4,6 @@ import {
   LayoutTemplate,
   PenLine,
   Mail,
-  FileText,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 
@@ -32,12 +31,6 @@ export const socials = [
     href: "https://www.linkedin.com/in/shivangi-j-9a23b8321/",
     label: "LinkedIn",
     icon: LinkedinIcon,
-    external: true,
-  },
-  {
-    href: "/shivangi-jadon-resume.pdf",
-    label: "Résumé",
-    icon: FileText,
     external: true,
   },
 ];
