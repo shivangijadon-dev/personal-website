@@ -11,7 +11,7 @@ export function MobileNav() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/70 backdrop-blur-xl lg:hidden">
-      <div className="flex items-center justify-between gap-4 px-5 py-4">
+      <div className="flex flex-col gap-3 px-5 pt-4 pb-3">
         <Link href="/" className="flex flex-col gap-0.5">
           <span className="font-display text-lg font-semibold tracking-tight">
             Shivangi Jadon
@@ -20,8 +20,21 @@ export function MobileNav() {
             Designer · Developer
           </span>
         </Link>
-        <nav className="flex items-center gap-4 text-sm">
-          {pages.map(({ href, label }) => {
+        <nav className="flex items-center gap-5 overflow-x-auto text-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {pages.map(({ href, label, external }) => {
+            if (external) {
+              return (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted transition-colors hover:text-foreground"
+                >
+                  {label}
+                </a>
+              );
+            }
             const active =
               href === "/" ? pathname === "/" : pathname.startsWith(href);
             return (

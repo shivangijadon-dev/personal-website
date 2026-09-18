@@ -36,7 +36,11 @@ export function Sidebar() {
       const match = pages.find((page) => page.shortcut === event.key);
       if (match) {
         event.preventDefault();
-        router.push(match.href);
+        if (match.external) {
+          window.open(match.href, "_blank", "noopener,noreferrer");
+        } else {
+          router.push(match.href);
+        }
       }
     }
 
@@ -59,7 +63,26 @@ export function Sidebar() {
       </Link>
 
       <nav className="flex flex-col">
-        {pages.map(({ href, label, icon: Icon, shortcut }) => {
+        {pages.map(({ href, label, icon: Icon, shortcut, external }) => {
+          if (external) {
+            return (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 rounded-2xl border border-transparent px-3 py-2 text-sm text-muted transition-all hover:text-foreground"
+              >
+                <Icon size={16} strokeWidth={1.75} />
+                <span className="flex-1">{label}</span>
+                <span className="flex items-center gap-1.5 opacity-0 transition-opacity group-hover:opacity-100">
+                  <span className="font-mono text-[10px] text-muted">{shortcut}</span>
+                  <ArrowUpRight size={13} strokeWidth={2} className="text-muted" />
+                </span>
+              </a>
+            );
+          }
+
           const active =
             href === "/" ? pathname === "/" : pathname.startsWith(href);
 

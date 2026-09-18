@@ -2,16 +2,20 @@ import {
   Home,
   Briefcase,
   LayoutTemplate,
+  ShoppingBag,
   PenLine,
   Mail,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
+import { shop } from "@/lib/templates";
 
 export const pages = [
-  { href: "/", label: "Home", icon: Home, shortcut: "1" },
-  { href: "/work", label: "Work", icon: Briefcase, shortcut: "2" },
-  { href: "/templates", label: "Templates", icon: LayoutTemplate, shortcut: "3" },
-  { href: "/blog", label: "Writing", icon: PenLine, shortcut: "4" },
+  { href: "/", label: "Home", icon: Home, shortcut: "1", external: false },
+  { href: "/work", label: "Work", icon: Briefcase, shortcut: "2", external: false },
+  { href: "/templates", label: "Templates", icon: LayoutTemplate, shortcut: "3", external: false },
+  // The Absolair store is a separate site, so this tab opens in a new tab.
+  { href: shop.href, label: "Shop", icon: ShoppingBag, shortcut: "4", external: true },
+  { href: "/blog", label: "Writing", icon: PenLine, shortcut: "5", external: false },
 ];
 
 export const socials = [
