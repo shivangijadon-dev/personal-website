@@ -49,17 +49,15 @@ export function Sidebar() {
   }, [router]);
 
   return (
-    <aside className="fixed inset-y-0 left-0 z-40 hidden w-60 flex-col border-r border-border bg-background/50 px-3 py-6 lg:flex">
+    <aside className="fixed inset-y-0 left-0 z-40 hidden w-60 flex-col border-r border-border bg-background/50 px-3 py-6 backdrop-blur-xl lg:flex">
       <Link
         href="/"
-        className="group flex flex-col gap-2 px-3 pb-6 transition-colors hover:text-accent"
+        className="group flex flex-col gap-0.5 px-3 pb-4 transition-colors hover:text-accent"
       >
-        <span className="font-display text-lg font-extrabold uppercase leading-tight tracking-wide">
-          Shivangi
-          <br />
-          Jadon
+        <span className="font-display text-xl font-semibold tracking-tight">
+          Shivangi Jadon
         </span>
-        <span className="font-serif text-sm italic text-muted">
+        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
           Designer · Developer
         </span>
       </Link>
@@ -73,7 +71,7 @@ export function Sidebar() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3 rounded-sm border border-transparent px-3 py-2 text-sm text-muted transition-all hover:text-foreground"
+                className="group flex items-center gap-3 rounded-2xl border border-transparent px-3 py-2 text-sm text-muted transition-all hover:text-foreground"
               >
                 <Icon size={16} strokeWidth={1.75} />
                 <span className="flex-1">{label}</span>
@@ -93,9 +91,9 @@ export function Sidebar() {
               key={href}
               href={href}
               aria-current={active ? "page" : undefined}
-              className={`group flex items-center gap-3 rounded-sm px-3 py-2 text-sm transition-all ${
+              className={`group flex items-center gap-3 rounded-2xl px-3 py-2 text-sm transition-all ${
                 active
-                  ? "border border-border bg-card font-semibold text-foreground"
+                  ? "border border-border bg-card text-foreground shadow-soft"
                   : "border border-transparent text-muted hover:text-foreground"
               }`}
             >
@@ -120,7 +118,7 @@ export function Sidebar() {
             href={href}
             target={external ? "_blank" : undefined}
             rel={external ? "noopener noreferrer" : undefined}
-            className="group flex items-center gap-3 rounded-sm border border-transparent px-3 py-2 text-sm text-muted transition-colors hover:text-foreground"
+            className="group flex items-center gap-3 rounded-2xl border border-transparent px-3 py-2 text-sm text-muted transition-colors hover:text-foreground"
           >
             <Icon size={16} strokeWidth={1.75} />
             <span className="flex-1">{label}</span>

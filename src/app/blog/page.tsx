@@ -4,7 +4,6 @@ import { ArrowUpRight } from "lucide-react";
 import { getAllPosts } from "@/lib/posts";
 import { getExternalPosts, platforms } from "@/lib/feeds";
 import { FadeIn } from "@/components/fade-in";
-import { PartHeading } from "@/components/editorial";
 
 export const metadata: Metadata = {
   title: "Writing — Shivangi Jadon",
@@ -13,6 +12,14 @@ export const metadata: Metadata = {
 // Re-check the external feeds hourly.
 export const revalidate = 3600;
 
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+      {children}
+    </h2>
+  );
+}
+
 export default async function BlogIndex() {
   const posts = getAllPosts();
   const external = await getExternalPosts();
@@ -20,20 +27,20 @@ export default async function BlogIndex() {
   return (
     <div className="mx-auto flex w-full max-w-4xl flex-col gap-16 px-8 py-20">
       <FadeIn>
-        <h1 className="font-display text-5xl font-extrabold uppercase tracking-tight sm:text-6xl">
+        <h1 className="font-display text-4xl font-semibold tracking-tight">
           Writing
         </h1>
       </FadeIn>
 
       <section className="flex flex-col gap-4">
         <FadeIn>
-          <PartHeading n={1} title="On this site" />
+          <SectionLabel>On this site</SectionLabel>
         </FadeIn>
         {posts.map((post, i) => (
           <FadeIn key={post.slug} delay={i * 0.05}>
             <Link
               href={`/blog/${post.slug}`}
-              className="group flex flex-col gap-1.5 rounded-sm border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:shadow-soft"
+              className="group flex flex-col gap-1.5 rounded-3xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:shadow-soft"
             >
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
                 {post.date}
@@ -56,7 +63,7 @@ export default async function BlogIndex() {
 
       <section className="flex flex-col gap-4">
         <FadeIn>
-          <PartHeading n={2} title="Elsewhere" />
+          <SectionLabel>Elsewhere</SectionLabel>
         </FadeIn>
         <FadeIn delay={0.05}>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -66,7 +73,7 @@ export default async function BlogIndex() {
                 href={profile}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3 rounded-sm border border-border bg-card px-5 py-4 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-soft"
+                className="group flex items-center gap-3 rounded-2xl border border-border bg-card px-5 py-4 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-soft"
               >
                 <Icon size={18} />
                 <span className="flex-1 text-sm font-medium">{name}</span>
@@ -84,16 +91,16 @@ export default async function BlogIndex() {
       {external.length > 0 && (
         <section className="flex flex-col gap-4">
           <FadeIn>
-            <PartHeading n={3} title="Latest from around the web" />
+            <SectionLabel>Latest from around the web</SectionLabel>
           </FadeIn>
-          <div className="flex flex-col divide-y divide-border rounded-sm border border-border bg-card">
+          <div className="flex flex-col divide-y divide-border rounded-3xl border border-border bg-card">
             {external.map((post, i) => (
               <FadeIn key={post.link} delay={i * 0.03}>
                 <a
                   href={post.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-baseline gap-4 p-5 transition-colors hover:bg-foreground/[0.03]"
+                  className="group flex items-baseline gap-4 p-5 transition-colors hover:bg-accent/[0.04]"
                 >
                   <span className="w-20 shrink-0 font-mono text-[10px] uppercase tracking-wider text-accent">
                     {post.source}

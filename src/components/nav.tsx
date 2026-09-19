@@ -10,13 +10,13 @@ export function MobileNav() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/70 lg:hidden">
+    <header className="sticky top-0 z-40 border-b border-border bg-background/70 backdrop-blur-xl lg:hidden">
       <div className="flex flex-col gap-3 px-5 pt-4 pb-3">
         <Link href="/" className="flex flex-col gap-0.5">
-          <span className="font-display text-base font-extrabold uppercase tracking-wide">
+          <span className="font-display text-lg font-semibold tracking-tight">
             Shivangi Jadon
           </span>
-          <span className="font-serif text-xs italic text-muted">
+          <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted">
             Designer · Developer
           </span>
         </Link>

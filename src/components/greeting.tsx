@@ -17,7 +17,7 @@ export function Greeting() {
   const hydrated = useHydrated();
 
   return (
-    <h1 className="font-display text-5xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-7xl">
+    <h1 className="font-display text-5xl font-semibold tracking-tight sm:text-6xl">
       {hydrated ? greetingFor(new Date().getHours()) : "Hello"}
     </h1>
   );

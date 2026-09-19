@@ -2,35 +2,31 @@
 @plugin "@tailwindcss/typography";
 @custom-variant dark (&:where(.dark, .dark *));
 
-/*
- * Editorial "zine" theme: warm cream paper, ink text, bold geometric uppercase
- * display type, and flat saturated colour blocks used sparingly as accents.
- * See docs/DESIGN.md.
- */
 :root {
-  --background: #f5efe1;
-  --foreground: #1c1a17;
-  --muted: #6b645a;
-  --border: rgba(28, 26, 23, 0.14);
-  --card: #fbf7ec;
-  --accent: #1f6fbf; /* cobalt — the primary accent */
-  --blue: #1f6fbf;
-  --green: #2bab4a;
-  --mustard: #edb13f;
-  --orange: #e2623a;
+  --background: #fafafa;
+  --foreground: #2f2a3a;
+  --muted: #6f6880;
+  --border: rgba(47, 42, 58, 0.1);
+  --card: #ffffff;
+  --accent: #7d6bd0;
+  /* Kept for project thumbnails and other accents, not for page background. */
+  --peach: #f6c3a8;
+  --blush: #f4b3c8;
+  --sky: #a9cbe8;
+  --sage: #b8cfb2;
 }
 
 .dark {
-  --background: #151412;
-  --foreground: #f2ebdd;
-  --muted: #a39b8d;
-  --border: rgba(242, 235, 221, 0.14);
-  --card: #1d1b18;
-  --accent: #4d93dc;
-  --blue: #4d93dc;
-  --green: #3fbf5e;
-  --mustard: #f0bd55;
-  --orange: #eb7650;
+  --background: #131316;
+  --foreground: #ededf0;
+  --muted: #9d9aa8;
+  --border: rgba(255, 255, 255, 0.1);
+  --card: #1a1a1f;
+  --accent: #bcaaf2;
+  --peach: #c98f74;
+  --blush: #c2809a;
+  --sky: #7ba0c4;
+  --sage: #86a583;
 }
 
 @theme inline {
@@ -40,16 +36,14 @@
   --color-border: var(--border);
   --color-card: var(--card);
   --color-accent: var(--accent);
-  --color-blue: var(--blue);
-  --color-green: var(--green);
-  --color-mustard: var(--mustard);
-  --color-orange: var(--orange);
+  --color-peach: var(--peach);
+  --color-blush: var(--blush);
+  --color-sky: var(--sky);
+  --color-sage: var(--sage);
 
-  --font-sans: var(--font-dm-sans);
-  --font-display: var(--font-montserrat);
-  --font-serif: var(--font-playfair);
-  /* Small uppercase labels use the display face, set bold (see below). */
-  --font-mono: var(--font-montserrat);
+  --font-sans: var(--font-harmattan);
+  --font-display: var(--font-harmattan);
+  --font-mono: var(--font-geist-mono);
 }
 
 body {
@@ -65,27 +59,16 @@ h3,
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Labels (dates, section kickers, tags) are small bold uppercase Montserrat. */
-.font-mono {
-  font-weight: 700;
-}
-
 ::selection {
   background: var(--accent);
   color: white;
 }
 
+/* Soft, wide, low-opacity elevation — the glassmorphic look from the references. */
 .shadow-soft {
-  box-shadow: 0 12px 28px -18px rgba(28, 26, 23, 0.45);
+  box-shadow: 0 18px 40px -24px rgba(89, 70, 148, 0.45);
 }
 
 .dark .shadow-soft {
-  box-shadow: 0 12px 28px -18px rgba(0, 0, 0, 0.8);
-}
-
-/* Rotated sideways label, like the vertical titles in the reference deck. */
-.vertical-label {
-  writing-mode: vertical-rl;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
+  box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.75);
 }

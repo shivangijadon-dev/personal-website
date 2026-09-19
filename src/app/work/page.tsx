@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { FadeIn } from "@/components/fade-in";
-import { PartHeading } from "@/components/editorial";
 
 export const metadata: Metadata = {
   title: "Work — Shivangi Jadon",
@@ -12,28 +11,28 @@ const projects = [
     description:
       "An AI assistant that lets support engineers query cases, product documentation, and escalations in one place, cutting the time it takes to find prior art and respond.",
     tags: ["Gen AI", "RAG", "ElasticSearch"],
-    color: "bg-blue",
+    gradient: "from-peach via-blush to-accent",
   },
   {
     name: "Log Analysis Platform",
     description:
       "An internal platform that parses and analyses contact centre and SIP logs, reducing manual troubleshooting effort and getting to root cause faster.",
     tags: ["Python", "Elastic", "Automation"],
-    color: "bg-green",
+    gradient: "from-sky via-accent to-blush",
   },
   {
     name: "LLM Guardrail Games",
     description:
       "Gandalf-style prompt-security games built to probe and strengthen LLM guardrails against adversarial inputs — a practical way to find where models give way.",
     tags: ["LLM Security", "Prompting", "React"],
-    color: "bg-mustard",
+    gradient: "from-accent via-sky to-sage",
   },
   {
     name: "Hackathons & CTFs",
     description:
       "Multiple hackathon and Capture The Flag wins, which is where most of my appetite for unfamiliar problems and short feedback loops comes from.",
     tags: ["CTF", "Security"],
-    color: "bg-orange",
+    gradient: "from-blush via-peach to-sky",
   },
 ];
 
@@ -141,31 +140,34 @@ const certifications = [
   "CCNA",
 ];
 
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+      {children}
+    </h2>
+  );
+}
+
 export default function Work() {
   return (
     <div className="mx-auto flex w-full max-w-4xl flex-col gap-20 px-8 py-20">
       <FadeIn>
-        <h1 className="font-display text-5xl font-extrabold uppercase tracking-tight sm:text-6xl">
+        <h1 className="font-display text-4xl font-semibold tracking-tight">
           Work
         </h1>
       </FadeIn>
 
       <section id="projects" className="flex flex-col gap-6">
         <FadeIn>
-          <PartHeading n={1} title="Selected work" />
+          <SectionLabel>Selected work</SectionLabel>
         </FadeIn>
         <div className="grid gap-4 sm:grid-cols-2">
           {projects.map((project, i) => (
             <FadeIn key={project.name} delay={i * 0.05}>
-              <div className="flex h-full flex-col gap-3 rounded-sm border border-border bg-card p-5 transition-all hover:-translate-y-1 hover:shadow-soft">
+              <div className="flex h-full flex-col gap-3 rounded-3xl border border-border bg-card p-5 transition-all hover:-translate-y-1 hover:shadow-soft">
                 <div
-                  className={`flex h-24 items-end justify-between rounded-sm p-3 ${project.color}`}
-                >
-                  <span className="font-display text-3xl font-extrabold leading-none text-white/90">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="h-px w-10 -rotate-45 bg-white/70" />
-                </div>
+                  className={`h-24 rounded-2xl bg-gradient-to-br ${project.gradient} opacity-70`}
+                />
                 <span className="font-display text-lg font-semibold">
                   {project.name}
                 </span>
@@ -176,7 +178,7 @@ export default function Work() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-sm bg-accent/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-accent"
+                      className="rounded-full bg-accent/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-accent"
                     >
                       {tag}
                     </span>
@@ -196,12 +198,12 @@ export default function Work() {
 
       <section id="skills" className="flex flex-col gap-6">
         <FadeIn>
-          <PartHeading n={2} title="What I work with" />
+          <SectionLabel>What I work with</SectionLabel>
         </FadeIn>
         <div className="grid gap-4 sm:grid-cols-2">
           {skills.map((skill, i) => (
             <FadeIn key={skill.group} delay={i * 0.05}>
-              <div className="flex h-full flex-col gap-3 rounded-sm border border-border bg-card p-5">
+              <div className="flex h-full flex-col gap-3 rounded-3xl border border-border bg-card p-5">
                 <span className="font-display text-base font-semibold">
                   {skill.group}
                 </span>
@@ -209,7 +211,7 @@ export default function Work() {
                   {skill.items.map((item) => (
                     <span
                       key={item}
-                      className="rounded-sm border border-border px-2.5 py-1 text-xs text-muted"
+                      className="rounded-full border border-border px-2.5 py-1 text-xs text-muted"
                     >
                       {item}
                     </span>
@@ -223,12 +225,12 @@ export default function Work() {
 
       <section id="experience" className="flex flex-col gap-6">
         <FadeIn>
-          <PartHeading n={3} title="Experience" />
+          <SectionLabel>Experience</SectionLabel>
         </FadeIn>
         <div className="flex flex-col gap-4">
           {experience.map((item, i) => (
             <FadeIn key={`${item.role}-${item.org}`} delay={i * 0.05}>
-              <div className="flex flex-col gap-3 rounded-sm border border-border bg-card p-6">
+              <div className="flex flex-col gap-3 rounded-3xl border border-border bg-card p-6">
                 <div className="flex flex-col gap-1">
                   <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
                     {item.period}
@@ -256,9 +258,9 @@ export default function Work() {
 
       <section id="education" className="flex flex-col gap-6">
         <FadeIn>
-          <PartHeading n={4} title="Education" />
+          <SectionLabel>Education</SectionLabel>
         </FadeIn>
-        <div className="flex flex-col divide-y divide-border rounded-sm border border-border bg-card">
+        <div className="flex flex-col divide-y divide-border rounded-3xl border border-border bg-card">
           {education.map((item) => (
             <FadeIn key={item.degree}>
               <div className="flex flex-col gap-1 p-6">
@@ -277,14 +279,14 @@ export default function Work() {
 
       <section id="certifications" className="flex flex-col gap-6">
         <FadeIn>
-          <PartHeading n={5} title="Certifications" />
+          <SectionLabel>Certifications</SectionLabel>
         </FadeIn>
         <FadeIn delay={0.05}>
-          <div className="flex flex-wrap gap-2 rounded-sm border border-border bg-card p-6">
+          <div className="flex flex-wrap gap-2 rounded-3xl border border-border bg-card p-6">
             {certifications.map((cert) => (
               <span
                 key={cert}
-                className="rounded-sm bg-accent/10 px-3 py-1.5 text-xs text-accent"
+                className="rounded-full bg-accent/10 px-3 py-1.5 text-xs text-accent"
               >
                 {cert}
               </span>
