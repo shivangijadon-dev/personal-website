@@ -14,9 +14,9 @@ function TemplateCard({ template }: { template: Template }) {
 
   const inner = (
     <>
-      <div
-        className={`h-28 rounded-2xl bg-gradient-to-br ${template.gradient} opacity-70 transition-opacity group-hover:opacity-90`}
-      />
+      <div className={`flex h-28 items-end justify-end rounded-sm p-3 ${template.color}`}>
+        <span className="h-px w-10 -rotate-45 bg-white/70" />
+      </div>
       <div className="flex items-center justify-between gap-3">
         <span className="flex items-center gap-1.5 font-display text-lg font-semibold">
           {template.name}
@@ -28,7 +28,7 @@ function TemplateCard({ template }: { template: Template }) {
             />
           )}
         </span>
-        <span className="shrink-0 rounded-full bg-accent/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-accent">
+        <span className="shrink-0 rounded-sm bg-accent/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-accent">
           {published ? template.price : "Soon"}
         </span>
       </div>
@@ -37,7 +37,7 @@ function TemplateCard({ template }: { template: Template }) {
         {template.tags.map((tag) => (
           <span
             key={tag}
-            className="rounded-full border border-border px-2.5 py-1 text-xs text-muted"
+            className="rounded-sm border border-border px-2.5 py-1 text-xs text-muted"
           >
             {tag}
           </span>
@@ -47,7 +47,7 @@ function TemplateCard({ template }: { template: Template }) {
   );
 
   const className =
-    "group flex h-full flex-col gap-3 rounded-3xl border border-border bg-card p-5 transition-all";
+    "group flex h-full flex-col gap-3 rounded-sm border border-border bg-card p-5 transition-all";
 
   if (!published) {
     return <div className={`${className} opacity-70`}>{inner}</div>;
@@ -70,7 +70,7 @@ export default function Templates() {
     <div className="mx-auto flex w-full max-w-4xl flex-col gap-10 px-8 py-20">
       <FadeIn>
         <div className="flex flex-col gap-3">
-          <h1 className="font-display text-4xl font-semibold tracking-tight">
+          <h1 className="font-display text-5xl font-extrabold uppercase tracking-tight sm:text-6xl">
             Templates
           </h1>
           <p className="max-w-xl leading-7 text-muted">
@@ -85,9 +85,9 @@ export default function Templates() {
           href={shop.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center gap-4 rounded-3xl border border-accent/25 bg-accent/[0.06] p-5 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-soft"
+          className="group flex items-center gap-4 rounded-sm border border-border bg-card p-5 transition-all hover:-translate-y-0.5 hover:shadow-soft"
         >
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-accent/15 text-accent">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm bg-blue text-white">
             <ShoppingBag size={18} strokeWidth={1.75} />
           </span>
           <span className="flex flex-1 flex-col gap-0.5">

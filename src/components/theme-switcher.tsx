@@ -14,7 +14,7 @@ export function ThemeSwitcher() {
   const hydrated = useHydrated();
 
   return (
-    <div className="flex rounded-full border border-border bg-card p-1">
+    <div className="flex rounded-sm border border-border bg-card p-1">
       {options.map((option) => {
         const active = hydrated && theme === option.value;
         return (
@@ -23,7 +23,7 @@ export function ThemeSwitcher() {
             type="button"
             onClick={() => setTheme(option.value)}
             aria-pressed={active}
-            className={`flex-1 rounded-full px-2 py-1.5 text-xs transition-colors ${
+            className={`flex-1 rounded-sm px-2 py-1.5 text-xs transition-colors ${
               active
                 ? "bg-accent/15 font-medium text-accent"
                 : "text-muted hover:text-foreground"

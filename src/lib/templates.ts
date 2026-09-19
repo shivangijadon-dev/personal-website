@@ -21,7 +21,8 @@ export type Template = {
   href: string;
   price: string;
   tags: string[];
-  gradient: string;
+  /** Flat accent block for the cover: bg-blue, bg-green, bg-mustard or bg-orange. */
+  color: string;
 };
 
 export const templates: Template[] = [
@@ -32,7 +33,7 @@ export const templates: Template[] = [
     href: "",
     price: "Free",
     tags: ["Productivity"],
-    gradient: "from-peach via-blush to-accent",
+    color: "bg-blue",
   },
   {
     name: "Template Two",
@@ -41,6 +42,6 @@ export const templates: Template[] = [
     href: "",
     price: "Free",
     tags: ["Planning"],
-    gradient: "from-sky via-accent to-blush",
+    color: "bg-green",
   },
 ];

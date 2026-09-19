@@ -54,7 +54,7 @@ export default async function BlogPost({
         <span className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
           {post.date}
         </span>
-        <h1 className="font-display text-4xl font-semibold tracking-tight">
+        <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
           {post.title}
         </h1>
       </header>
