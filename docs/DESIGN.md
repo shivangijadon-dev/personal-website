@@ -36,19 +36,20 @@ Loaded via `next/font/google` in [`src/app/layout.tsx`](../src/app/layout.tsx):
 
 ## Layout
 
-Modelled on [sj.land](https://www.sj.land/): a fixed left sidebar beside a rounded content
-panel that floats on the pastel background.
+Modelled on [sj.land](https://www.sj.land/): a fixed left sidebar beside a content panel
+that sits on the cream page.
 
 - [`components/sidebar.tsx`](../src/components/sidebar.tsx) — the desktop sidebar, at `lg:`
-  and up. Signature-style italic wordmark, icon nav with a raised pill for the active page,
+  and up. Bold uppercase wordmark stacked on two lines with a serif italic subtitle, icon nav
+  with a bordered highlight for the active page,
   a small-caps "Stay in touch" group, and the theme switcher pinned to the bottom. Number
   keys 1–3 jump between pages, ignoring modifiers and typing in form fields.
 - [`components/nav.tsx`](../src/components/nav.tsx) — the top bar that replaces the sidebar
   below `lg:`.
 - Nav destinations live in one place,
   [`components/nav-items.tsx`](../src/components/nav-items.tsx), so both share them.
-- The content panel is defined in [`app/layout.tsx`](../src/app/layout.tsx) — a glass card
-  that always fills at least the viewport height, so the footer sits at its bottom edge.
+- The content panel is defined in [`app/layout.tsx`](../src/app/layout.tsx) — a square-cornered
+  card that always fills at least the viewport height, so the footer sits at its bottom edge.
 
 ## Recurring patterns
 
