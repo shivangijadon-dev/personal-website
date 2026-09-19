@@ -1,47 +1,38 @@
 # Design direction
 
-The site is clean and minimal: a white page, a single lavender accent, and generous space.
-It started from a set of pastel references (see [`design-references/`](./design-references/))
-but was deliberately pared back — the ambient gradient wash, the portrait, and the pink tint
-were all removed in favour of white.
+An editorial "zine" theme, shared with the Absolair store (`absolair.shivangijadon.com`):
+warm cream paper, ink text, bold geometric uppercase display type, a classic serif for
+kickers, and flat saturated colour blocks used sparingly as accents. It comes from an
+editorial presentation deck ("ORIGINALITY" / Maly Design) chosen in September 2026, after
+earlier pastel and plain-white versions. See [`design-references/`](./design-references/).
 
 ## Palette
 
-Defined as CSS custom properties in [`src/app/globals.css`](../src/app/globals.css). Change
-them there and the whole site follows.
+Defined as CSS custom properties in [`src/app/globals.css`](../src/app/globals.css).
 
-### Light (the primary treatment)
+| Token          | Light     | Used for                                            |
+| -------------- | --------- | --------------------------------------------------- |
+| `--background` | `#f5efe1` | Warm cream paper                                    |
+| `--card`       | `#fbf7ec` | Content panel and cards, a shade lighter            |
+| `--foreground` | `#1c1a17` | Ink text                                            |
+| `--muted`      | `#6b645a` | Secondary text                                      |
+| `--accent`     | `#1f6fbf` | Cobalt — links, the active accent, the hero block   |
+| `--blue` `--green` `--mustard` `--orange` | | Flat accent blocks, always in that order |
 
-| Token          | Value                | Used for                                     |
-| -------------- | -------------------- | -------------------------------------------- |
-| `--background` | `#fafafa`            | Off-white page behind the content panel       |
-| `--foreground` | `#2f2a3a`            | Body text — near-black with a hint of plum    |
-| `--muted`      | `#6f6880`            | Secondary text                                |
-| `--accent`     | `#7d6bd0`            | Lavender — links, labels, active nav, hovers  |
-| `--card`       | `#ffffff`            | Content panel and card fill                   |
-| `--peach`      | `#f6c3a8`            | Project thumbnails and skill rings only       |
-| `--blush`      | `#f4b3c8`            | Project thumbnails and skill rings only       |
-| `--sky`        | `#a9cbe8`            | Project thumbnails                            |
-| `--sage`       | `#b8cfb2`            | Spare accent, currently unused                |
-
-The pastels are deliberately scoped to content — thumbnails, tags, and rings. They are never
-used for page or panel backgrounds.
-
-### Dark
-
-A neutral near-black (`#131316`) with a slightly lifted panel (`#1a1a1f`), keeping the same
-lavender accent.
+Dark mode is ink paper (`#151412`) with cream text and slightly brighter accents. Colour
+blocks are always flat — never gradients — and small: corner squares, bars on cards, and
+project covers.
 
 ## Typography
 
-Two families, loaded via `next/font/google` in
-[`src/app/layout.tsx`](../src/app/layout.tsx):
+Loaded via `next/font/google` in [`src/app/layout.tsx`](../src/app/layout.tsx):
 
-- **Harmattan** (`--font-sans` and `--font-display`) — everything. An SIL humanist sans,
-  Arabic-first with a Latin companion, in four static weights (400–700). It has no italic, so
-  avoid `italic` — the browser would synthesise a faux oblique.
-- **Geist Mono** (`--font-mono`) — small meta labels only (dates, section headers), always
-  uppercase with `tracking-[0.2em]`.
+- **Montserrat** (`--font-display`) — headlines in extrabold uppercase, big section
+  numerals, and small bold uppercase labels. `--font-mono` also points at it, so every
+  `font-mono` label is bold Montserrat.
+- **Playfair Display** (`--font-serif`) — italic kickers and subtitles, e.g. "Welcome in —"
+  and "Designer · Developer".
+- **DM Sans** (`--font-sans`) — body copy.
 
 ## Layout
 
@@ -61,17 +52,20 @@ panel that floats on the pastel background.
 
 ## Recurring patterns
 
-- **Cards** — `rounded-3xl border border-border bg-card`, lifting on hover with
-  `.shadow-soft` (a wide, low-opacity purple-tinted shadow).
-- **Wave divider** — [`components/cloud-divider.tsx`](../src/components/cloud-divider.tsx)
-  sits above the footer: three layered paths in the accent at 6–10% opacity, enough to
-  suggest an edge without tinting the page.
-- **Motion** — [`components/fade-in.tsx`](../src/components/fade-in.tsx) fades and lifts
-  sections into view. It short-circuits to a plain wrapper when the visitor prefers reduced
-  motion, so content is never hidden behind an animation.
+All in [`components/editorial.tsx`](../src/components/editorial.tsx):
+
+- **`PartHeading`** — "Part. 01" section headings: a big numeral, a small label, and a rule.
+- **`Monogram`** — a letter cut by a thin diagonal hairline ("S" here, "A" on the store).
+- **`ColorBlocks`** — the four accent colours as a row of small blocks, used in the footer.
+- **`.vertical-label`** (in `globals.css`) — sideways, widely tracked uppercase text, like
+  the vertical titles in the reference deck.
+
+Cards are square-cornered (`rounded-sm`) with a thin border and a light lift on hover.
+[`components/fade-in.tsx`](../src/components/fade-in.tsx) still fades sections in and
+skips the animation for visitors who prefer reduced motion.
 
 ## Guardrails
 
-The page should read as white. Colour belongs to content — a project thumbnail, a tag, a
-skill ring, the active nav pill — never to the page or panel background. When adding
-something decorative, ask whether it tints the whole surface; if it does, it does not belong.
+Colour belongs to small blocks and content — a corner square, a card bar, a project cover —
+never to the page background, which stays cream. Keep display type bold and uppercase but
+short; long text such as post titles stays in normal case so it remains readable.
